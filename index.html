@@ -478,15 +478,17 @@
       transform: translateY(0);
     }
 
-    .js .reveal {
-      opacity: 0;
-      transform: translateY(22px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
+    @media (prefers-reduced-motion: no-preference) {
+      .js .reveal {
+        opacity: 0;
+        transform: translateY(22px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+      }
 
-    .js .reveal.is-visible {
-      opacity: 1;
-      transform: translateY(0);
+      .js .reveal.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     @media (max-width: 960px) {

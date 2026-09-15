@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DELYVANTA | Helping Local Businesses Go Digital</title>
   <meta name="description" content="DELYVANTA builds affordable websites and Android apps for local merchants and small businesses. Call now for a 3-page static website at ₹2,500 with free hosting included.">
+  <script>document.documentElement.classList.add("js");</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
@@ -31,8 +32,10 @@
       box-sizing: border-box;
     }
 
-    html {
-      scroll-behavior: smooth;
+    @media (prefers-reduced-motion: no-preference) {
+      html {
+        scroll-behavior: smooth;
+      }
     }
 
     body {
@@ -471,12 +474,17 @@
     }
 
     .reveal {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .js .reveal {
       opacity: 0;
       transform: translateY(22px);
       transition: opacity 0.6s ease, transform 0.6s ease;
     }
 
-    .reveal.is-visible {
+    .js .reveal.is-visible {
       opacity: 1;
       transform: translateY(0);
     }

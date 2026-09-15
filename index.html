@@ -145,6 +145,11 @@
       padding: 0.55rem;
     }
 
+    .brand-copy {
+      display: flex;
+      flex-direction: column;
+    }
+
     .brand-name {
       font-size: 1.2rem;
       font-weight: 800;
@@ -152,6 +157,7 @@
     }
 
     .brand-tagline {
+      display: block;
       margin-top: 0.1rem;
       font-size: 0.86rem;
       color: var(--muted);
@@ -571,7 +577,7 @@
               <path d="M44 25c-2.95-4.39-7.96-7.28-13.65-7.28h-2v4.52h2c4.11 0 7.77 2.01 10.04 5.11L44 25Z" fill="#f4a261"/>
             </svg>
           </span>
-          <span>
+          <span class="brand-copy">
             <span class="brand-name">DELYVANTA</span>
             <span class="brand-tagline">Digital growth for local businesses</span>
           </span>

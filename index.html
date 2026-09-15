@@ -536,11 +536,11 @@
 </head>
 <body>
   <header class="site-header">
-    <div class="container nav" aria-label="Primary">
+    <div class="container nav">
       <a class="brand" href="#top" aria-label="DELYVANTA home">
         <span class="brand-lockup">
           <span class="brand-mark" aria-hidden="true">
-            <svg viewBox="0 0 64 64" role="img" aria-label="DELYVANTA logo">
+            <svg viewBox="0 0 64 64">
               <path d="M18 16h14c12.15 0 22 9.85 22 22s-9.85 22-22 22H18V16Zm12 35c7.73 0 14-6.27 14-14s-6.27-14-14-14h-2v28h2Z" fill="#ffffff"/>
               <path d="M44 25c-2.95-4.39-7.96-7.28-13.65-7.28h-2v4.52h2c4.11 0 7.77 2.01 10.04 5.11L44 25Z" fill="#f4a261"/>
             </svg>
@@ -551,7 +551,7 @@
           </span>
         </span>
       </a>
-      <nav class="nav-links">
+      <nav class="nav-links" aria-label="Primary">
         <a href="#services">Services</a>
         <a href="#pricing">Pricing</a>
         <a href="#how-it-works">How It Works</a>
@@ -837,16 +837,22 @@
   </footer>
 
   <script>
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.15 });
+    const revealElements = document.querySelectorAll(".reveal");
 
-    document.querySelectorAll(".reveal").forEach((element) => observer.observe(element));
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+
+      revealElements.forEach((element) => observer.observe(element));
+    } else {
+      revealElements.forEach((element) => element.classList.add("is-visible"));
+    }
   </script>
 </body>
 </html>

@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DELYVANTA — We put your shop online. One phone call.</title>
+<meta name="description" content="DELYVANTA builds websites and Android apps for local merchants. Static 3-page website for ₹2,500, free hosting included. Call to start.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%231B2340'/%3E%3Cpath d='M30 65 L30 35 L50 50 Z' fill='%23E8A33D'/%3E%3Ccircle cx='68' cy='50' r='9' fill='none' stroke='%23E8A33D' stroke-width='4'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1B2340;
+    --ink-soft:#2A3358;
+    --paper:#FAF8F4;
+    --paper-dim:#F1EDE4;
+    --marigold:#E8A33D;
+    --marigold-deep:#C9812A;
+    --teal:#14524A;
+    --charcoal:#22262E;
+    --slate:#6B7280;
+    --line:#DCD5C6;
+    --radius-s:6px;
+    --radius-m:10px;
+    --maxw:1120px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--charcoal);
+    font-family:'Work Sans', sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    color:var(--ink);
+    margin:0;
+    line-height:1.1;
+    font-weight:600;
+  }
+  p{margin:0;}
+  a{color:inherit;text-decoration:none;}
+  img,svg{display:block;max-width:100%;}
+  .wrap{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 28px;
+  }
+  :focus-visible{
+    outline:3px solid var(--marigold);
+    outline-offset:3px;
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
+  }
+
+  /* ---------- Header ---------- */
+  header{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:rgba(250,248,244,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:16px 28px;
+    max-width:var(--maxw);
+    margin:0 auto;
+  }
+  .logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:1.3rem;
+    color:var(--ink);
+  }
+  .logo-mark{width:30px;height:30px;flex-shrink:0;}
+  .nav-cta{
+    display:flex;
+    align-items:center;
+    gap:14px;
+  }
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:11px 22px;
+    border-radius:var(--radius-s);
+    font-weight:600;
+    font-size:0.95rem;
+    border:1px solid transparent;
+    cursor:pointer;
+    transition:transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+    white-space:nowrap;
+  }
+  .btn-primary{
+    background:var(--marigold);
+    color:var(--ink);
+  }
+  .btn-primary:hover{
+    background:var(--marigold-deep);
+    transform:translateY(-1px);
+    box-shadow:0 6px 16px rgba(201,129,42,0.35);
+  }
+  .btn-ghost{
+    color:var(--ink);
+    border-color:var(--line);
+    background:transparent;
+  }
+  .btn-ghost:hover{
+    border-color:var(--ink);
+  }
+  .nav .btn-ghost{display:none;}
+  @media (min-width:640px){
+    .nav .btn-ghost{display:inline-flex;}
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    padding:76px 0 90px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    gap:56px;
+    align-items:center;
+  }
+  @media (max-width:860px){
+    .hero-grid{grid-template-columns:1fr; gap:48px;}
+  }
+  .eyebrow-line{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    color:var(--teal);
+    font-weight:600;
+    font-size:0.92rem;
+    margin-bottom:22px;
+  }
+  .eyebrow-line svg{width:18px;height:18px;flex-shrink:0;}
+  .hero h1{
+    font-size:clamp(2.3rem, 5vw, 3.4rem);
+    letter-spacing:-0.01em;
+    max-width:14ch;
+  }
+  .hero-sub{
+    margin-top:22px;
+    font-size:1.15rem;
+    color:var(--slate);
+    max-width:46ch;
+  }
+  .hero-actions{
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px;
+    margin-top:34px;
+  }
+  .btn-lg{
+    padding:15px 28px;
+    font-size:1.02rem;
+  }
+  .hero-note{
+    margin-top:20px;
+    font-size:0.9rem;
+    color:var(--slate);
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .hero-note svg{width:16px;height:16px;flex-shrink:0;color:var(--teal);}
+
+  /* Hero visual: shopfront -> signal, drawn as a single SVG scene */
+  .hero-visual{
+    background:var(--ink);
+    border-radius:16px;
+    padding:36px;
+    position:relative;
+  }
+  .hero-visual svg{width:100%;height:auto;}
+
+  /* ---------- Marquee strip ---------- */
+  .strip{
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    background:var(--paper-dim);
+  }
+  .strip-inner{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px 40px;
+    padding:22px 28px;
+    max-width:var(--maxw);
+    margin:0 auto;
+    justify-content:center;
+    font-size:0.92rem;
+    color:var(--slate);
+  }
+  .strip-inner span{white-space:nowrap;}
+  .strip-inner strong{color:var(--ink);}
+
+  /* ---------- Section shared ---------- */
+  section{padding:88px 0;}
+  .section-head{
+    max-width:60ch;
+    margin-bottom:52px;
+  }
+  .section-head h2{
+    font-size:clamp(1.8rem, 3.4vw, 2.4rem);
+  }
+  .section-head p{
+    margin-top:14px;
+    color:var(--slate);
+    font-size:1.08rem;
+  }
+
+  /* ---------- About ---------- */
+  .about{
+    background:var(--paper-dim);
+  }
+  .about-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:start;
+  }
+  @media (max-width:860px){
+    .about-grid{grid-template-columns:1fr;}
+  }
+  .about-list{
+    display:flex;
+    flex-direction:column;
+    gap:26px;
+  }
+  .about-item{
+    display:flex;
+    gap:16px;
+  }
+  .about-item svg{
+    width:22px;height:22px;flex-shrink:0;color:var(--teal);margin-top:3px;
+  }
+  .about-item h3{
+    font-size:1.08rem;
+    font-family:'Work Sans', sans-serif;
+    font-weight:600;
+    color:var(--ink);
+  }
+  .about-item p{
+    color:var(--slate);
+    margin-top:5px;
+    font-size:0.98rem;
+  }
+
+  /* ---------- Services ---------- */
+  .services-list{
+    display:flex;
+    flex-direction:column;
+    border-top:1px solid var(--line);
+  }
+  .service-row{
+    display:grid;
+    grid-template-columns:56px 1fr auto;
+    gap:24px;
+    align-items:center;
+    padding:30px 0;
+    border-bottom:1px solid var(--line);
+  }
+  @media (max-width:700px){
+    .service-row{grid-template-columns:44px 1fr; row-gap:12px;}
+    .service-row .service-tag{grid-column:2;}
+  }
+  .service-icon{
+    width:52px;height:52px;
+    border-radius:var(--radius-m);
+    background:var(--ink);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .service-icon svg{width:26px;height:26px;color:var(--marigold);}
+  .service-row h3{
+    font-size:1.2rem;
+    font-family:'Fraunces', serif;
+    font-weight:600;
+  }
+  .service-row p{
+    color:var(--slate);
+    margin-top:6px;
+    font-size:0.98rem;
+    max-width:52ch;
+  }
+  .service-tag{
+    font-size:0.85rem;
+    font-weight:600;
+    color:var(--teal);
+    background:rgba(20,82,74,0.08);
+    padding:7px 14px;
+    border-radius:99px;
+    white-space:nowrap;
+    justify-self:start;
+  }
+  @media (min-width:701px){
+    .service-tag{justify-self:end;}
+  }
+
+  /* ---------- Pricing ---------- */
+  .pricing{
+    background:var(--ink);
+    color:var(--paper);
+  }
+  .pricing .section-head h2{color:var(--paper);}
+  .pricing .section-head p{color:#B9BEDA;}
+  .price-card{
+    background:var(--ink-soft);
+    border:1px solid rgba(255,255,255,0.12);
+    border-radius:16px;
+    padding:44px;
+    display:grid;
+    grid-template-columns:1fr auto;
+    gap:40px;
+    align-items:center;
+  }
+  @media (max-width:760px){
+    .price-card{grid-template-columns:1fr; text-align:left;}
+  }
+  .price-tag{
+    display:inline-block;
+    font-size:0.85rem;
+    font-weight:600;
+    color:var(--marigold);
+    background:rgba(232,163,61,0.14);
+    padding:6px 14px;
+    border-radius:99px;
+    margin-bottom:18px;
+  }
+  .price-card h3{
+    color:var(--paper);
+    font-size:1.6rem;
+  }
+  .price-features{
+    margin-top:20px;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+  }
+  .price-features div{
+    display:flex;
+    gap:10px;
+    align-items:flex-start;
+    color:#D8DBED;
+    font-size:0.98rem;
+  }
+  .price-features svg{width:18px;height:18px;color:var(--marigold);flex-shrink:0;margin-top:2px;}
+  .price-amount{
+    text-align:right;
+  }
+  @media (max-width:760px){
+    .price-amount{text-align:left;}
+  }
+  .price-amount .num{
+    font-family:'Fraunces', serif;
+    font-size:3.2rem;
+    color:var(--paper);
+    font-weight:600;
+    line-height:1;
+  }
+  .price-amount .cur{font-size:1.4rem;vertical-align:top;margin-right:4px;color:var(--marigold);}
+  .price-amount .unit{
+    display:block;
+    color:#9FA4C4;
+    font-size:0.9rem;
+    margin-top:6px;
+  }
+  .price-amount .btn{margin-top:22px;width:100%;justify-content:center;}
+  .price-other{
+    margin-top:24px;
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+    color:#B9BEDA;
+    font-size:0.92rem;
+  }
+  .price-other span{
+    border:1px solid rgba(255,255,255,0.18);
+    padding:8px 16px;
+    border-radius:99px;
+  }
+
+  /* ---------- How it works ---------- */
+  .steps{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:0;
+    border-top:1px solid var(--line);
+    border-left:1px solid var(--line);
+  }
+  @media (max-width:860px){
+    .steps{grid-template-columns:repeat(2,1fr);}
+  }
+  @media (max-width:520px){
+    .steps{grid-template-columns:1fr;}
+  }
+  .step{
+    padding:32px 28px;
+    border-right:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+  }
+  .step .step-index{
+    font-family:'Fraunces', serif;
+    font-size:0.95rem;
+    color:var(--marigold-deep);
+    font-weight:600;
+    margin-bottom:14px;
+    display:block;
+  }
+  .step h3{
+    font-size:1.05rem;
+    font-family:'Work Sans', sans-serif;
+    font-weight:600;
+  }
+  .step p{
+    margin-top:8px;
+    color:var(--slate);
+    font-size:0.94rem;
+  }
+
+  /* ---------- Contact ---------- */
+  .contact{
+    background:var(--paper-dim);
+  }
+  .contact-card{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:48px;
+    display:grid;
+    grid-template-columns:1.1fr 1fr;
+    gap:48px;
+  }
+  @media (max-width:800px){
+    .contact-card{grid-template-columns:1fr; padding:32px;}
+  }
+  .contact-card h2{font-size:1.9rem;}
+  .contact-card > div:first-child p{
+    color:var(--slate);
+    margin-top:14px;
+    max-width:40ch;
+  }
+  .contact-methods{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+  }
+  .contact-method{
+    display:flex;
+    align-items:center;
+    gap:16px;
+    padding:18px 20px;
+    border:1px solid var(--line);
+    border-radius:var(--radius-m);
+    transition:border-color 0.15s ease, background 0.15s ease;
+  }
+  .contact-method:hover{
+    border-color:var(--teal);
+    background:rgba(20,82,74,0.04);
+  }
+  .contact-method svg{width:24px;height:24px;color:var(--teal);flex-shrink:0;}
+  .contact-method .cm-label{
+    font-size:0.82rem;
+    color:var(--slate);
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+  }
+  .contact-method .cm-value{
+    font-weight:600;
+    color:var(--ink);
+    font-size:1.05rem;
+    font-family:'Fraunces', serif;
+  }
+  .avail-note{
+    margin-top:20px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    color:var(--teal);
+    font-weight:600;
+    font-size:0.92rem;
+  }
+  .avail-note svg{width:16px;height:16px;}
+
+  /* ---------- Footer ---------- */
+  footer{
+    padding:36px 0;
+    border-top:1px solid var(--line);
+  }
+  .footer-inner{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:16px;
+    font-size:0.88rem;
+    color:var(--slate);
+  }
+  .footer-inner .logo{font-size:1.05rem;}
+  .footer-inner .logo-mark{width:22px;height:22px;}
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <div class="logo">
+      <svg class="logo-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect width="100" height="100" rx="20" fill="#1B2340"/>
+        <path d="M30 65 L30 35 L50 50 Z" fill="#E8A33D"/>
+        <circle cx="68" cy="50" r="9" fill="none" stroke="#E8A33D" stroke-width="4"/>
+      </svg>
+      DELYVANTA
+    </div>
+    <div class="nav-cta">
+      <a href="#pricing" class="btn btn-ghost">See pricing</a>
+      <a href="tel:+918448816848" class="btn btn-primary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Call now
+      </a>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow-line">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          One call is all it takes
+        </div>
+        <h1>Your shop, open online by this weekend.</h1>
+        <p class="hero-sub">DELYVANTA builds websites and Android apps for local merchants — no visits, no meetings, just a phone call and a business that's ready to go digital.</p>
+        <div class="hero-actions">
+          <a href="tel:+918448816848" class="btn btn-primary btn-lg">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Call +91 84488 16848
+          </a>
+          <a href="mailto:kul.nirdesh@gmail.com" class="btn btn-ghost btn-lg">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v16H4z" stroke="none"/><path d="M22 6l-10 7L2 6" stroke="currentColor"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
+            Email us
+          </a>
+        </div>
+        <div class="hero-note">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          We're a virtual team — available on call, ready to start the same day.
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <svg viewBox="0 0 420 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A local shopfront connecting to a website and phone signal">
+          <!-- shopfront -->
+          <rect x="30" y="150" width="150" height="120" rx="4" fill="#2A3358"/>
+          <rect x="30" y="130" width="150" height="24" rx="3" fill="#E8A33D"/>
+          <rect x="50" y="180" width="34" height="40" rx="2" fill="#FAF8F4" opacity="0.85"/>
+          <rect x="96" y="180" width="34" height="40" rx="2" fill="#FAF8F4" opacity="0.85"/>
+          <rect x="70" y="232" width="60" height="38" fill="#14524A"/>
+          <line x1="30" y1="150" x2="15" y2="150" stroke="#E8A33D" stroke-width="3"/>
+          <line x1="180" y1="150" x2="195" y2="150" stroke="#E8A33D" stroke-width="3"/>
+
+          <!-- dotted transmission path -->
+          <path d="M195 190 C 250 190, 250 120, 300 120" fill="none" stroke="#E8A33D" stroke-width="2.5" stroke-dasharray="2 8" stroke-linecap="round"/>
+
+          <!-- phone / website card -->
+          <rect x="290" y="60" width="100" height="180" rx="14" fill="#FAF8F4"/>
+          <rect x="300" y="80" width="80" height="120" rx="4" fill="#14524A"/>
+          <rect x="308" y="90" width="64" height="8" rx="2" fill="#E8A33D"/>
+          <rect x="308" y="106" width="44" height="6" rx="2" fill="#FAF8F4" opacity="0.6"/>
+          <rect x="308" y="118" width="64" height="34" rx="3" fill="#FAF8F4" opacity="0.15"/>
+          <rect x="308" y="160" width="30" height="10" rx="3" fill="#E8A33D"/>
+          <circle cx="340" cy="216" r="6" fill="#2A3358"/>
+
+          <!-- signal arcs -->
+          <path d="M300 40 a 45 45 0 0 1 90 0" fill="none" stroke="#E8A33D" stroke-width="3" stroke-linecap="round" opacity="0.9"/>
+          <path d="M315 48 a 30 30 0 0 1 60 0" fill="none" stroke="#E8A33D" stroke-width="3" stroke-linecap="round" opacity="0.6"/>
+
+          <!-- ground line -->
+          <line x1="10" y1="272" x2="410" y2="272" stroke="#3A4370" stroke-width="1.5"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- STRIP -->
+  <div class="strip">
+    <div class="strip-inner wrap">
+      <span><strong>100%</strong> virtual, call-based service</span>
+      <span><strong>₹2,500</strong> static websites, 3 pages</span>
+      <span><strong>Free</strong> hosting on your own business email</span>
+      <span><strong>Android + Web</strong> under one roof</span>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="wrap about-grid">
+      <div class="section-head" style="margin-bottom:0;">
+        <h2>Built for shopkeepers, not tech teams.</h2>
+        <p>Most local businesses put off going online because it feels like a project — vendors to chase, forms to fill, jargon to decode. DELYVANTA removes all of that. You call, you tell us about your shop, and we handle the rest.</p>
+      </div>
+      <div class="about-list">
+        <div class="about-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <div>
+            <h3>Everything happens on a call</h3>
+            <p>No site visits, no in-person meetings. Tell us what your shop needs over the phone and we take it from there.</p>
+          </div>
+        </div>
+        <div class="about-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l3 6 6 1-4.5 4.5L18 20l-6-3-6 3 1.5-6.5L3 9l6-1z"/></svg>
+          <div>
+            <h3>Priced for small businesses</h3>
+            <p>A simple static website costs ₹2,500 — no hidden charges, no recurring hosting fees for the first year.</p>
+          </div>
+        </div>
+        <div class="about-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          <div>
+            <h3>Fast turnaround</h3>
+            <p>Most static sites go live within days of the first call — not weeks.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>What we build</h2>
+        <p>From a simple shop website to a full Android app — pick what your business needs today, and add more later.</p>
+      </div>
+      <div class="services-list">
+        <div class="service-row">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg>
+          </div>
+          <div>
+            <h3>Website for local merchants</h3>
+            <p>A clean, mobile-friendly website that shows your shop, products, and contact details — so customers find you before they even walk in.</p>
+          </div>
+          <span class="service-tag">From ₹2,500</span>
+        </div>
+        <div class="service-row">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+          </div>
+          <div>
+            <h3>Android app development</h3>
+            <p>A dedicated app for your business — orders, catalogues, or bookings, built to match how your customers already use their phones.</p>
+          </div>
+          <span class="service-tag">Contact for pricing</span>
+        </div>
+        <div class="service-row">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          </div>
+          <div>
+            <h3>Free hosting, set up for you</h3>
+            <p>Every static website we build comes with free hosting, configured under your own business email so it's yours from day one.</p>
+          </div>
+          <span class="service-tag">Included</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing" id="pricing">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Simple pricing, no surprises</h2>
+        <p>Start with a static website. Move to something bigger whenever your business is ready.</p>
+      </div>
+      <div class="price-card">
+        <div>
+          <span class="price-tag">Most popular for new businesses</span>
+          <h3>Static Website — up to 3 pages</h3>
+          <div class="price-features">
+            <div>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+              Up to 3 static pages (e.g. Home, About, Contact)
+            </div>
+            <div>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+              No database, no login required
+            </div>
+            <div>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+              Free hosting, set up under your business email
+            </div>
+            <div>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+              Mobile-friendly design, ready to share on WhatsApp & Google
+            </div>
+          </div>
+        </div>
+        <div class="price-amount">
+          <div><span class="cur">₹</span><span class="num">2,500</span></div>
+          <span class="unit">one-time, no recurring cost</span>
+          <a href="tel:+918448816848" class="btn btn-primary">Call to start</a>
+        </div>
+      </div>
+      <div class="price-other">
+        <span>Dynamic website with database or login — contact for pricing</span>
+        <span>Android app — contact for pricing</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>How it works</h2>
+        <p>Four steps, one phone call to start.</p>
+      </div>
+    </div>
+    <div class="wrap" style="padding:0;">
+      <div class="steps">
+        <div class="step">
+          <span class="step-index">01</span>
+          <h3>Call us</h3>
+          <p>Dial +91 84488 16848 whenever you're ready — no appointment needed.</p>
+        </div>
+        <div class="step">
+          <span class="step-index">02</span>
+          <h3>Share your details</h3>
+          <p>Tell us about your business, what you sell, and what you want your website or app to show.</p>
+        </div>
+        <div class="step">
+          <span class="step-index">03</span>
+          <h3>We build it</h3>
+          <p>Our team designs and builds your website or app, and sends you a preview before it goes live.</p>
+        </div>
+        <div class="step">
+          <span class="step-index">04</span>
+          <h3>You go live</h3>
+          <p>Once you approve, we publish it — hosted for free under your business email.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <div class="contact-card">
+        <div>
+          <h2>Ready to take your shop online?</h2>
+          <p>Call or email us directly — there's no form to fill and no waiting for a callback.</p>
+          <div class="avail-note">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            Available on call only
+          </div>
+        </div>
+        <div class="contact-methods">
+          <a href="tel:+918448816848" class="contact-method">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <div>
+              <div class="cm-label">Phone</div>
+              <div class="cm-value">+91 84488 16848</div>
+            </div>
+          </a>
+          <a href="mailto:kul.nirdesh@gmail.com" class="contact-method">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
+            <div>
+              <div class="cm-label">Email</div>
+              <div class="cm-value">kul.nirdesh@gmail.com</div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <div class="logo">
+      <svg class="logo-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect width="100" height="100" rx="20" fill="#1B2340"/>
+        <path d="M30 65 L30 35 L50 50 Z" fill="#E8A33D"/>
+        <circle cx="68" cy="50" r="9" fill="none" stroke="#E8A33D" stroke-width="4"/>
+      </svg>
+      DELYVANTA
+    </div>
+    <span>© 2026 DELYVANTA. Virtual digital services for local businesses.</span>
+  </div>
+</footer>
+
+</body>
+</html>
